@@ -36,6 +36,26 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    environment:
+    - "PMA_ABSOLUTE_URI=http://dev.smartid.my/phpmyadmin"
+    volumes:
+    - "./phpmyadmin/sessions:/sessions"
+    networks:
+      - local 
+
+  omnidb:
+    image: taivokasper/omnidb
+    container_name: omnidb
+    restart: always
+    volumes:
+      - config-omnidb:/etc/omnidb
+    networks:
+      - local
+
 networks:
   local:
     driver: bridge
