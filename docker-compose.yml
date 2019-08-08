@@ -52,7 +52,7 @@ services:
     container_name: omnidb
     restart: always
     volumes:
-      - config-omnidb:/etc/omnidb
+      - ./config-omnidb:/etc/omnidb
     networks:
       - local
 
