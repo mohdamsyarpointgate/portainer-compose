@@ -45,7 +45,9 @@ services:
     volumes:
     - "./phpmyadmin/sessions:/sessions"
     networks:
-      - local 
+      - local
+    expose:
+      - "80"
 
   omnidb:
     image: taivokasper/omnidb
@@ -55,6 +57,8 @@ services:
       - ./config-omnidb:/etc/omnidb
     networks:
       - local
+    expose:
+      - "8080"
 
 networks:
   local:
